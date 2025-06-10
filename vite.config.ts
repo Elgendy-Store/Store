@@ -3,5 +3,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Store/', // Must match https://elgendy-store.github.io/Store/
+  optimizeDeps: {
+    exclude: ['lucide-react'],
+  },
+  base: '/Store/', // Ensure this line is present and matches the repo path
 });
