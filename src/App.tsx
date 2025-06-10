@@ -15,7 +15,7 @@ import ScrollToTop from './components/ScrollToTop'; //asharmota!!
 
 function App() {
   return (
-    <Router basename="/Online-Store">
+    <Router basename="/Store">
       <BudgetProvider>
         <div className="flex flex-col min-h-screen">
           <ScrollToTop /> {}
@@ -29,7 +29,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/search" element={<SearchResultsPage />} />
-            <Route path="/Online-Store" element={<Navigate to="/" replace />} />
+            <Route path="/Store" element={<Navigate to="/" replace />} />
             <Route path="*" element={<HomePage />} />
           </Routes>
           <Footer />

@@ -59,7 +59,7 @@ const ContactPage: React.FC = () => {
       return;
     }
 
-    const baseUrl = 'https://elgendy-store.github.io/Online-Store';
+    const baseUrl = 'https://elgendy-store.github.io/Store';
     const budgetDetails = budgetItems.length > 0
       ? `${t('budgetItems')}:\n${budgetItems
           .map((item) => `- ${item.product.name} (${item.quantity}x): ${baseUrl}/products/${item.product.id}`)
