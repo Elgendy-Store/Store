@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
@@ -8,6 +8,9 @@ import emailjs from '@emailjs/browser';
 import { useBudget } from '../context/BudgetContext';
 
 const ContactPage: React.FC = () => {
+  useEffect(() => {
+    console.log('Env Vars:', import.meta.env);
+  }, []);
   const { t } = useTranslation();
   const storeInfo = getStoreInfo();
   const formRef = useRef<HTMLFormElement>(null);
@@ -69,7 +72,12 @@ const ContactPage: React.FC = () => {
     };
 
     emailjs
-      .send('service_zjtg9u5', 'template_1nlffsq', formDataWithBudget, 'bcjVTCGADnPxg5Op7')
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formDataWithBudget,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
       .then(
         () => {
           setIsSubmitting(false);
